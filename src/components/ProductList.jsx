@@ -1,14 +1,19 @@
-import ProductItem from "./ProductItem.jsx";
 
-function ProductList({ products }) {
-  if (!products.length) return <p>No products found.</p>;
+import React from "react";
+import ProductItem from "./ProductItem";
+
+export default function ProductList({ products, favorites, toggleFavorite }) {
   return (
     <div className="grid">
-      {products.map((p) => (
-        <ProductItem key={p.id} product={p} />
+      {products.map((product) => (
+        <ProductItem
+          key={product.id}
+          product={product}
+          favorites={favorites}
+          toggleFavorite={toggleFavorite}
+        />
       ))}
     </div>
   );
 }
 
-export default ProductList;  // << ye bhi zaroori
